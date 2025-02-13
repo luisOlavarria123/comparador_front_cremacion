@@ -1,0 +1,468 @@
+{% extends '_cLayout.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<div style="height:150px; text-align:center; background-image:url('https://linguistic-coffee-rodent.myfilebase.com/ipfs/QmYChwg4fDmi31NwEC7ymM8mLuU5kQTWZfzVfbtJ3GAGau'); background-size: contain; background-position: right; background-repeat: no-repeat;padding:5px">
+    <br />
+    <h2 style="color:#0097B2; font-weight: bold;">Servicios Funerarios</h2>
+    <h5>Encuentra el servicio funerario adecuado para tus seres queridos</h5>
+<br />
+</div>
+
+
+
+<div class="wrapper wrapper-content container">
+    <div class="row mb-2">
+        <div class="col-md-12">
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:white">
+                <div style="background-color:white">
+                    <h5 class="mb-0" style="margin:15px 10px 10px 15px;color:#ff6900;padding-bottom: 15px;font-weight:bold">Resultados [<span id="sNroResultados">0</span>]</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <button id="btnMostrarFiltros" class="btn btn-primary d-md-none">
+            Mostrar Filtros
+        </button>
+        <div class="col-md-2" id="dvFiltros">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:white">
+                <div class="col-12 filterHead">
+                        <h5 class="mb-0" style="margin:10px 10px 10px 10px;color:white;border-bottom-width: 10px;padding-bottom: 10px;">Ordenar por</h5>
+                    
+                </div>
+                <div class="col-12 ibox" id="iBoxOrden" style="padding-left: 25px;padding-right: 25px;">
+                    <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">          
+                        <div class="sk-spinner sk-spinner-wave" style="padding-bottom: 8px;">
+                            <div class="sk-rect1"></div>
+                            <div class="sk-rect2"></div>
+                            <div class="sk-rect3"></div>
+                            <div class="sk-rect4"></div>
+                            <div class="sk-rect5"></div>
+                            <br />
+                        </div>
+                        <br />
+                        <select class="form-control" id="selOrden">
+                            <option value="0">Destacados</option>
+                            <option value="1">Precio de Menor a Mayor</option>
+                            <option value="2">Precio de Mayor a Menor</option>
+                            <option value="3">Mayor Valoración</option>
+                        </select>
+                        <br />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:white">
+                <div class="col-12 filterHead">
+                        <h5 class="mb-0" style="margin:10px 10px 10px 10px;color:white;border-bottom-width: 10px;padding-bottom: 10px;">Precio</h5>
+                    
+                </div>
+                <div class="col-12 ibox" id="iBoxPrice" style="padding-left: 25px;padding-right: 25px;">
+                    <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">          
+                        <div class="sk-spinner sk-spinner-wave" style="padding-bottom: 8px;">
+                            <div class="sk-rect1"></div>
+                            <div class="sk-rect2"></div>
+                            <div class="sk-rect3"></div>
+                            <div class="sk-rect4"></div>
+                            <div class="sk-rect5"></div>
+                            <br />
+                        </div>
+                        <br />
+                        <div class="slidecontainer">
+                            <input type="text" class="js-range-slider"  name="my_range" value="" style="border: white;"  />
+                            <br />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:white">
+                <div class="col-12 filterHead">
+                    <h5 class="mb-0" style="margin:10px 10px 10px 10px;color:white;border-bottom-width: 10px;padding-bottom: 10px;">
+                        Ubicación
+                    </h5>
+
+                </div>
+
+                <div class="col p-4 flex-column position-static fr ibox" id="iBoxUbicacion">
+                    <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">          
+                        <div class="sk-spinner sk-spinner-wave" style="padding-bottom: 8px;">
+                            <div class="sk-rect1"></div>
+                            <div class="sk-rect2"></div>
+                            <div class="sk-rect3"></div>
+                            <div class="sk-rect4"></div>
+                            <div class="sk-rect5"></div>
+                            <br />
+                        </div>                    
+                        <div id="regionContainer"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            <div class="ibox col-md-10" id="iBoxData" >          
+                <h4 style="text-align: center;" id="lblmsjeData">Un momento, estamos obteniendo los servicios para usted.</h4>                         
+                <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">        
+                    
+                    <div class="sk-spinner sk-spinner-wave ">
+                        
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                        
+                    </div>
+                    <div id="dvData">
+                        
+                    </div>
+                    <div style="text-align: center; width: 100%;">
+                        <button id="btnCargarMas" class="form-control btnc btncm" 
+                            >
+                            <i class="fa fa-arrow-down" style="margin-right: 8px;"></i> Ver más servicios
+                        </button>
+                    </div>
+                    
+                </div>    
+                
+            </div>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-lg-3 col-12">
+                            <img src='/static/img/IMG_3.png' alt='...' style='display: block; max-width: 100%; max-height: 100%; object-fit: contain;'>
+                            <input type="hidden" value="" id="hServicioID" />
+                            <input type="hidden" value="" id="hValor" />
+                        </div>
+                        <div class="col-lg-5 col-12" style="text-align: center;">
+
+                            <h3 class='mb-0' style='color:#4c4c4c' id="lblmServicio"></h3>
+                            <h4 class='mb-0' style='color:#7a7878' id="lblmPrestador"></h4>
+                            <label id="lblmDireccion"></label>
+                        </div>
+                        <div class="col-lg-4 col-12" style="text-align: center;">
+                            <h4 class='mb-0' style='padding-bottom:5px' id="lblmValor"></h4>
+                           <!-- <input type='button' class='pulse-button btnc' value='Contactar' id="btnContactarDetalle" /><br />-->
+                            <button type='button' class='form-control btnN' id="btnContactarDetalle" />Contactar</button><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row " id="rowDetalles">
+                        <div class="col-lg-5 col-12 ibox" style="border-right: 1px #c6c6c7 solid;" id="iboxServicios">
+                            <div class="ibox-content">
+                            <div class="sk-spinner sk-spinner-wave ">
+                        
+                                <div class="sk-rect1"></div>
+                                <div class="sk-rect2"></div>
+                                <div class="sk-rect3"></div>
+                                <div class="sk-rect4"></div>
+                                <div class="sk-rect5"></div>
+                                
+                            </div>
+                            <h6><strong>¿Que Incluye?</strong></h6>
+                            <ul class="list-group list-group-flush" id="ulPrincipal">
+                            </ul>
+                            
+                            <h6 style="margin-top: 10px;"><strong>Servicios Adicionales</strong></h6>
+                            
+                            <ul class="list-group list-group-flush" id="ulAdicional" style="max-height: 200px; overflow-y: scroll;">
+
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-12 ibox" id="iboxValoraciones">
+                            <div class="ibox-content">
+                                <div class="sk-spinner sk-spinner-wave ">
+                            
+                                    <div class="sk-rect1"></div>
+                                    <div class="sk-rect2"></div>
+                                    <div class="sk-rect3"></div>
+                                    <div class="sk-rect4"></div>
+                                    <div class="sk-rect5"></div>
+                                    
+                                </div>
+                                <div style="text-align: center;">
+                                    <h5 class="headValoraciones" style="text-align: center; font-weight: bold;">Valoraciones y comentarios</h5>
+                                    <medium style="text-align: center;">(Solo de personas que han contratado el servico)</medium>
+                                </div>
+                                <div style="max-height: 400px; overflow: scroll; padding:5px" id="dvResenias">
+                                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="rowContactar" style="display:none">
+                        <div class="col-lg-2 col-0" ></div>
+                        <div class="col-lg-8 col-12">
+                            <form id="frmContactar">
+                                <div class="form-row">
+                                <div class="form-group col-md-6 col-6">
+                                    <label for="inputEmail4">Nombre</label>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="nombre" required>
+                                </div>
+                                <div class="form-group col-md-6 col-6">
+                                    <label for="inputPassword4">Apellido</label>
+                                    <input type="text" class="form-control" id="txtApellido" placeholder="Apellido" required>
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-5 col-8">
+                                        <label for="inputEmail4">RUT</label>
+                                        <input type="number" class="form-control" id="txtRut" maxlength="8" placeholder="RUT EJ: 11111111" required>
+
+                                    </div>
+                                    <div class="form-group col-md-1 col-3">
+                                        <label for="inputEmail4">DV</label>
+                                        <input type="text" class="form-control" id="txtDv" maxlength="1" placeholder="K" required oninput="this.value = this.value.toUpperCase().replace(/[^0-9K]/g, '');">
+                                    </div>                                    
+                                    <div class="form-group col-md-6 col-12">
+                                        <label for="inputPassword4">Teléfono</label>
+                                        <input type="number" class="form-control" id="txtTelefono" placeholder="Telefono">
+                                    </div>
+                                    </div>
+                                <div class="form-group">
+                                <label for="inputAddress2">Correo</label>
+                                <input type="email" class="form-control" id="txtCorreo" placeholder="correo@correo.cl">
+                                </div>
+
+                                <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Acepto los terminos y condiciones
+                                    </label>
+                                </div>
+                                </div>
+                                <button type="submit" class="btn btnN">Contactar</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-2 col-0" ></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<style>
+
+    .filterHead{
+        background-color: #0097B2;
+        width:100%;
+    }
+    .btnV{
+        margin-top:5px;
+        background-color:#8a8b8b;
+        color:white;
+        cursor: pointer;
+    }    
+    .btnN{
+        margin-top:5px;
+        background-color:#0097B2;
+        color:white;
+        cursor: pointer;
+    }
+
+    .btncm{
+        width: 30%;
+        margin: 5px auto; 
+        background-color: #8a8b8b; 
+        color: white; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .logoServicio {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .cell {
+    float: center;
+    min-height: 200px;
+    max-height: 350px;
+    text-align: center;
+    min-width: 100px;
+    
+    }
+    .dvPrice {
+        text-align: center;
+        border-left: 1px solid #a5a5a5;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        width: 210px;
+    }
+    .pulse-button {
+        background-color: #0097B2;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px;
+        color: #fff;
+        cursor: pointer;
+        padding: 8px 16px;
+        width: 100%;
+        -webkit-animation: pulse 1s infinite;
+    }
+
+    .iDetail{
+        color:#0097B2
+    }
+
+    .list-group-item {
+        display: flex;
+        align-items: center;     /* Alinea ícono y texto verticalmente */
+    }
+
+    .list-group-item i {
+        font-size: 1.5rem;       /* Tamaño del ícono */
+        width: 30px;             /* Ancho fijo para los íconos */
+        text-align: center;      /* Centrar los íconos dentro de su espacio */
+        flex-shrink: 0;          /* Evita que los íconos se reduzcan */
+    }
+
+    .list-group-item span {
+        margin-left: 10px;       /* Espacio entre el ícono y el texto */
+    }
+
+    .modal-dialog{
+        width: 80%;max-width: 100%;
+    }
+
+    .stari{
+        font-size: 11px;
+    }
+    @media (max-width: 767px) {
+        .headValoraciones{
+            margin-top: 20px;
+        }
+
+        .btncm{
+            width: 80%;
+        }
+        .modal-dialog {
+            width: auto !important;  /* Quita el ancho especificado en dispositivos móviles */
+            max-width: none !important;  /* Quita el ancho máximo especificado en dispositivos móviles */
+        }
+        .stari{
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .logoServicio {
+            max-width: 65%;  /* Controla el ancho máximo en móviles */
+            max-height: 65%; /* Controla el alto máximo en móviles */
+            object-fit: contain; /* Mantiene la relación de aspecto */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+        .lblDir{
+            margin-top: 5px;
+        }
+        .dvPrice {
+        text-align: center;
+        border-left: 0px!important;
+        border-top: 1px solid #dee2e6;
+        margin-top: 10px!important;
+        margin-bottom: 10px;
+        width: 210px;
+        }
+
+        .dvDetalle{
+            text-align: center!important;
+        }
+
+        #dvFiltros {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Inicialmente oculto fuera de la pantalla */
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            z-index: 1050;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        #dvFiltros.active {
+            left: 0; /* Mover el div dentro de la pantalla cuando está activo */
+        }
+
+        /* Ocultar el contenido principal mientras los filtros están abiertos */
+        .content-blur {
+            filter: blur(5px);
+        }
+
+        #btnMostrarFiltros {
+            position: fixed;
+            bottom: 20px; /* Posición en la parte inferior */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Ajuste de centrado */
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            z-index: 1060; /* Debe estar encima de otros elementos */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle efecto flotante */
+        }
+
+        /* Ocultar el botón en pantallas grandes */
+        @media (min-width: 768px) {
+            #btnMostrarFiltros {
+                display: none;
+            }
+        }
+
+
+    }
+
+    @keyframes pulse {
+                0% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+                }
+
+                70% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+                }
+
+                100% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+                }
+    }
+
+   
+
+</style>
+<script>
+    const url = "{{ URL_API }}";
+    const urlMedia = "{{ URL_MEDIA }}";
+    const portalCode = "{{ PORTALCODE }}";
+</script>
+
+<script src="{% static '/js/pages/comparador.js' %}"></script>
+
+{% endblock %}

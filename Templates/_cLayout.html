@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrecioCremacion.cl</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/intrav2.css' %}" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <script src="https://kit.fontawesome.com/7b59231cf8.js" crossorigin="anonymous"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
+    <!-- Ionic icons -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <script src="{% static '/lib/jquery/dist/jquery.js' %}"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom ">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="https://preciofuneraria.s3.us-east-1.amazonaws.com/logopreciocremacion.png" class="custom-logo" alt="Precio Cremación" decoding="async" sizes="(max-width: 605px) 100vw, 605px">
+                </a>
+    
+                <!-- Botón para abrir el menú en dispositivos móviles -->
+                <button id="btnMostrarMenu" class="navbar-toggler d-md-none" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Navbar contenido (se colapsará desde la derecha) -->
+                <div id="navbarContent" class="navbar-collapse">
+                    <ul id="menu" class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="https://preciocremacion.cl">INICIO</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="https://api.whatsapp.com/send/?phone=56942755332&text=Necesito+mas+informacion+sobre+cremacion&type=phone_number&app_absent=0">CONTACTO</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    
+
+    <!-- Page Content -->
+
+    <div>
+        <section>
+            <main role="main" class="pb-3">
+                
+                {% block content %}
+                {% endblock %}       
+            </main>
+        </section>
+    </div>
+
+
+
+    <footer class="border-top footer text-muted">
+
+        <div class="container">
+            Copyright © 2023 Precio Cremación | 
+        </div>
+    </footer>
+    <script src="{% static '/lib/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static '/lib/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/js/site.js' %}" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>   
+
+    <div class="modal fade" id="okModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius:40px; margin-top:20%">
+
+                <div class="modal-body dvOk" >
+                    <h4 id="lblOkTitulo"></h4>
+                    <h5 id="lblOkSubTitulo"></h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="nokModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border-radius:40px; margin-top:20%">
+
+                <div class="modal-body dvNok">
+                    <h4 id="lblNokTitulo"></h4>
+                    <h5 id="lblNokSubTitulo"></h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a href="https://wa.me/56933700142?text=Hola,%20quisiera%20asesoría%20inmediata%20sobre%20servicios%20funerarios%20por%20favor." 
+    class="whatsapp-button" 
+    target="_blank" 
+    title="Contactar por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+ </a>
+ 
+</body>
+
+
+<style>
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde el lado derecho */
+    z-index: 1000; /* Asegura que esté siempre visible */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    border-radius: 50%; /* Botón circular */
+    background-color: #25D366; /* Color verde de WhatsApp */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.whatsapp-button img {
+    width: 35px; /* Icono dentro del botón */
+    height: 35px;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Agranda ligeramente el botón al pasar el cursor */
+    opacity: 0.9; /* Reduce la opacidad */
+}
+
+  /* Ocultar el navbar por defecto en dispositivos móviles */
+@media (max-width: 767px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ajustar el contenido para que no quede oculto debajo del header */
+    main {
+        margin-top: 80px;
+    }
+
+    /* Navbar desplegable desde la derecha */
+    #navbarContent {
+        position: fixed;
+        top: 0;
+        right: -250px; /* Inicialmente oculto fuera de la pantalla */
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1050;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbarContent.active {
+        right: 0; /* Mostrar el navbar cuando esté activo */
+    }
+
+    /* Botón para abrir el menú */
+    #btnMostrarMenu {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1060;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .custom-logo{
+        max-width: 300px;
+    }
+}
+
+/* En pantallas más grandes, mantener el navbar visible y el header estático */
+@media (min-width: 768px) {
+    header {
+        position: relative;
+    }
+
+    #navbarContent {
+        position: static;
+        right: 0;
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    #btnMostrarMenu {
+        display: none; /* Ocultar el botón en pantallas grandes */
+    }
+}
+
+</style>
+<script>
+$(document).ready(function() {
+    // Mostrar el menú de navegación al hacer clic en el botón
+    $('#btnMostrarMenu').on('click', function() {
+        $('#navbarContent').toggleClass('active');
+    });
+});
+</script>
+</html>
+
+
+
+
+     
