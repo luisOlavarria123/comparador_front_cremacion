@@ -1736,17 +1736,18 @@
             </div>
             <div class="site-branding">
                 <a href="index.html" class="custom-logo-link" rel="home" aria-current="page"><img width="7631"
-                        height="1788" src="" {% static '/wp-content/uploads/2023/06/cropped-cremacion.logo-1.png' %}"
+                        height="1788" src="{% static '/wp-content/uploads/2023/06/cropped-cremacion.logo-1.png' %}"
                         class="custom-logo" alt="Precio Cremación" decoding="async"
-                        srcset="https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1.png 7631w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-300x70.png 300w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-1024x240.png 1024w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-768x180.png 768w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-1536x360.png 1536w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-2048x480.png 2048w, https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1-600x141.png 600w"
-                        sizes="(max-width: 7631px) 100vw, 7631px" /></a>
+                        srcset="https://preciocremacion.cl/static/wp-content/uploads/2023/06/cropped-cremacion.logo-1.png" /></a>
             </div>
             <div class="site-navigation ">
                 <nav class="main-navigation" aria-label="Navegación principal">
                     <ul id="menu-menu-principal" class="primary-navigation">
                         <li id="menu-item-91"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91"><a
-                                href="index.html"><span class="menu-item-text">INICIO</span></a></li>
+                                href="#"><span class="menu-item-text">INICIO</span></a></li>
+                        <li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91">
+                                    <a href="/compara"><span class="menu-item-text">COMPARA</span></a></li>                                  
                         <li id="menu-item-96"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-96"><a
                                 href="https://wa.me/56942755332?text=Necesito%20mas%20informacion%20sobre%20cremacion"><span
@@ -5371,7 +5372,7 @@
                                                                                                             class="eael-posted-by"><a
                                                                                                                 href="author/admin/index.html"
                                                                                                                 title="Entradas de admin"
-                                                                                                                rel="author">admin</a></span><span
+                                                                                                                rel="author"></a></span><span
                                                                                                             class="eael-posted-on"><time
                                                                                                                 datetime="junio 30, 2023">junio
                                                                                                                 30,
@@ -5443,7 +5444,7 @@
                                                                                                             class="eael-posted-by"><a
                                                                                                                 href="author/admin/index.html"
                                                                                                                 title="Entradas de admin"
-                                                                                                                rel="author">admin</a></span><span
+                                                                                                                rel="author"></a></span><span
                                                                                                             class="eael-posted-on"><time
                                                                                                                 datetime="junio 30, 2023">junio
                                                                                                                 30,
@@ -5514,7 +5515,7 @@
                                                                                                             class="eael-posted-by"><a
                                                                                                                 href="author/admin/index.html"
                                                                                                                 title="Entradas de admin"
-                                                                                                                rel="author">admin</a></span><span
+                                                                                                                rel="author"></a></span><span
                                                                                                             class="eael-posted-on"><time
                                                                                                                 datetime="junio 30, 2023">junio
                                                                                                                 30,
@@ -5585,7 +5586,7 @@
                                                                                                             class="eael-posted-by"><a
                                                                                                                 href="author/admin/index.html"
                                                                                                                 title="Entradas de admin"
-                                                                                                                rel="author">admin</a></span><span
+                                                                                                                rel="author"></a></span><span
                                                                                                             class="eael-posted-on"><time
                                                                                                                 datetime="junio 30, 2023">junio
                                                                                                                 30,
@@ -5757,7 +5758,9 @@
             <nav class="main-navigation" aria-label="Navegación principal">
                 <ul id="menu-menu-principal-1" class="primary-navigation">
                     <li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91">
-                        <a href="index.html"><span class="menu-item-text">INICIO</span></a></li>
+                        <a href="#"><span class="menu-item-text">INICIO</span></a></li>
+                    <li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-91">
+                            <a href="/compara"><span class="menu-item-text">COMPARA</span></a></li>                        
                     <li id="menu-item-96" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-96">
                         <a href="https://wa.me/56942755332?text=Necesito%20mas%20informacion%20sobre%20cremacion"><span
                                 class="menu-item-text">CONTACTO</span></a></li>
@@ -5910,9 +5913,9 @@
     <script type='text/javascript'
         src="{% static '/wp-content/plugins/elementor/assets/js/frontend-modules.mina1c3.js?ver=3.14.1' %}"
         id='elementor-frontend-modules-js'></script>
-    <script type='text/javascript'
+    <!--<script type='text/javascript'
         src="{% static '/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.html?ver=4.0.2' %}"
-        id='elementor-waypoints-js'></script>
+        id='elementor-waypoints-js'></script>-->
     <script type='text/javascript' src="{% static '/wp-includes/js/jquery/ui/core.min3f14.js?ver=1.13.2'%}"
         id='jquery-ui-core-js'></script>
     <script type='text/javascript'
@@ -5936,9 +5939,9 @@
     <script type='text/javascript'
         src="{% static '/wp-content/plugins/jet-elements/assets/js/jet-elements.mind047.js?ver=2.6.7' %}"
         id='jet-elements-js'></script>
-    <script type='text/javascript'
+    <!--<script type='text/javascript'
         src="{% static '/wp-content/plugins/elementor/assets/js/preloaded-modules.mina1c3.html?ver=3.14.1' %}"
-        id='preloaded-modules-js'></script>
+        id='preloaded-modules-js'></script>-->
     <script type='text/javascript' src="{% static '/wp-includes/js/underscore.mind584.js?ver=1.13.4' %}"
         id='underscore-js'></script>
     <script type='text/javascript' id='wp-util-js-extra'>
