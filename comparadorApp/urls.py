@@ -4,5 +4,6 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('', views.comparador, name='comparador'),
+    path('', views.index, name='index'),
+    path('compara', views.comparador, name='compara'),
 ]

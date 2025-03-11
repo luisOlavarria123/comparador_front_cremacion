@@ -8,3 +8,5 @@ def comparador(request):
     PORTALCODE = os.getenv("PORTALCODE")
     return render(request,'comparador.html',{"URL_API":URL_API,"URL_MEDIA":URL_MEDIA,"PORTALCODE":PORTALCODE})
 
+def index(request):
+    return render(request,'index.html')
