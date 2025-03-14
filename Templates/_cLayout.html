@@ -31,10 +31,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom " style="padding: 15px 50px 15px 50px;">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom navPadding">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="https://preciocremacion.cl">
                     <img src="https://preciofuneraria.s3.us-east-1.amazonaws.com/logopreciocremacion.png" class="custom-logo" alt="Precio Cremación" decoding="async" sizes="(max-width: 605px) 100vw, 605px">
                 </a>
     
@@ -213,7 +213,6 @@
 
     .custom-logo{
         max-width: 300px;
-        width: 30vh;
     }
 
     .banner
@@ -231,6 +230,13 @@
     {
         background-color: #ffffff7a;
     }
+    .navPadding
+      {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+      }
 }
 
 /* En pantallas más grandes, mantener el navbar visible y el header estático */
@@ -238,7 +244,10 @@
     header {
         position: relative;
     }
-
+    .navPadding
+    {
+        padding: 15px 50px 15px 50px;
+    }
     #navbarContent {
         position: static;
         right: 0;

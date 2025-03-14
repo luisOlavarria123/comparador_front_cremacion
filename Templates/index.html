@@ -97,6 +97,11 @@
 .custom-logo{
         max-width: 300px;
     }
+
+.navPadding
+{
+    padding: 15px 50px 15px 50px;
+}
   /* Ocultar el navbar por defecto en dispositivos móviles */
   @media (max-width: 767px) {
       .header {
@@ -108,7 +113,13 @@
           background-color: #fff;
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       }
-  
+      .navPadding
+      {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+      }
       /* Ajustar el contenido para que no quede oculto debajo del header */
       main {
           margin-top: 80px;
@@ -216,9 +227,7 @@
         -->
 
         <header class="header">
-            <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom " style="
-            padding: 15px 50px 15px 50px;
-        ">
+            <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom navPadding" >
                 <div class="container-fluid">
                     <!-- Logo -->
                     <a class="navbar-brand" href="#">
