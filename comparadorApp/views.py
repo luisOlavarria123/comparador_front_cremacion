@@ -3,10 +3,14 @@ import os
 
 def comparador(request):
 
-    URL_API = os.getenv("URL_API")
-    URL_MEDIA = os.getenv("URL_MEDIA")
-    PORTALCODE = os.getenv("PORTALCODE")
-    return render(request,'comparador.html',{"URL_API":URL_API,"URL_MEDIA":URL_MEDIA,"PORTALCODE":PORTALCODE})
+    return render(request,'comparador.html')
 
 def index(request):
     return render(request,'index.html')
+
+def blog(request):
+
+    return render(request,'blog/noticia_list.html')
+
+def detalle_noticia_template(request, slug):
+    return render(request, 'blog/noticia_detail.html', {'slug': slug})

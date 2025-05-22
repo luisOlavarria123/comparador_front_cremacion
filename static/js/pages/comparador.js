@@ -276,7 +276,7 @@ function cargarResenias(servicioId) {
                 const usuario = item.usuario_nombre+ ' ' + item.usuario_apellido;
                 const rating = item.rating;
                 const comentario = item.comentario;
-                const fecha = new Date(item.fechaCreacion).toLocaleDateString();
+                const fecha = new Date(item.fechaCreacion).toLocaleDateString('es-CL');
 
                 // Generamos la estructura HTML de la tarjeta
                 let tarjetaHtml = `

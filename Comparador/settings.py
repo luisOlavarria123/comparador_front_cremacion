@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['*']
 DEBUG = os.getenv('DEBUG','False')
 URL_API = os.getenv("URL_API")
 URL_MEDIA = os.getenv("URL_MEDIA")
+PORTALCODE = os.getenv("PORTALCODE")
 
 # Application definition
 
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Comparador.context_processors.global_variables',
             ],
         },
     },

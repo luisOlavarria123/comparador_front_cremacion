@@ -4,6 +4,8 @@
 	--grey: #efefef;
 }
 
+
+
 body {
 	
 	font-family: Poppins, sans-serif;
@@ -312,4 +314,24 @@ a:hover {
 	  -webkit-transform: scaleY(1);
 	  transform: scaleY(1);
 	}
+  }
+
+  .btnCallToAction{
+	background-color: black; 
+	color: white; 
+	border-radius:15px; 
+	font-size: 20px;
+	padding:15px 20px 15px 20px; 
+	line-height: 20px; 
+	font-weight: 600;
+  }
+
+    .btnCallToAction:hover{
+	background-color: rgb(71, 190, 198); 
+	color: rgb(0, 0, 0); 
+	border-radius:15px; 
+	font-size: 20px;
+	padding:15px 20px 15px 20px; 
+	line-height: 20px; 
+	font-weight: 600;
   }

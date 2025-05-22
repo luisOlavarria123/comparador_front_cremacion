@@ -1,0 +1,75 @@
+{% extends '_cLayout.html' %}
+
+{% block content %}
+{% load static %}
+
+<div>
+    <div class="row">
+        <div class="col-12" style="text-align: center;" >
+            <br />
+            <h3 class="titleP" style="color:#0097B2; font-weight: bold;">Noticias</h3>
+            <h5 class="subTitleBanner" style="margin-bottom: 5px;">Encuentra toda la información que necesitas sobre servicios de cremación</h5>
+            <br />
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content container">
+    <div class="row mb-2">
+
+    </div>
+    <div class="row mb-2">
+            <div class="ibox col-md-12" id="iBoxData" >          
+                <h4 style="text-align: center;" id="lblmsjeData">Un momento, estamos obteniendo las noticias para usted.</h4>                         
+                <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">        
+                    
+                    <div class="sk-spinner sk-spinner-wave ">
+                        
+                        <div class="sk-rect1"></div>
+                        <div class="sk-rect2"></div>
+                        <div class="sk-rect3"></div>
+                        <div class="sk-rect4"></div>
+                        <div class="sk-rect5"></div>
+                        
+                    </div>
+                    <div id="dvData">
+                        
+                    </div>
+
+                    
+                </div>    
+                <div class="container mt-5">
+                    <h2 id="titulo"></h2>
+                    <small id="fecha" class="text-muted"></small>
+                    <p id="contenido" class="mt-4"></p>
+                </div>
+            </div>
+
+    </div>
+
+
+  
+</div>
+<style>
+  .noticia-link{
+    color: black;
+  }
+  #contenido {
+    column-count: 2;           /* Número de columnas */
+    column-gap: 40px;          /* Espacio entre columnas */
+    text-align: justify;       /* Para mejor lectura */
+}
+@media (max-width: 768px) {
+    .texto-multicolumna {
+        column-count: 1;
+    }
+}
+</style>
+
+<script>
+    const slug = "{{ slug }}"
+    alert(url);
+</script>
+<script src="{% static '/js/pages/noticia_detail.js' %}"></script>
+
+{% endblock %}
