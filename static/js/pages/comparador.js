@@ -424,15 +424,15 @@ function generarTarjeta(id, desc, valor, prestador, region, comuna, dir, num,log
                     "<span style='font-size:16px'>DESDE <br /></span>"+
                     "<label id='lblValor_"+id+"'>$"+Intl.NumberFormat("es-MX").format(valor)+"</label>"+
                   "</h4>"+
-             "    <input type='button' class='pulse-button btnc' value='Contactar' onclick='verDetalles("+id+",1)' /><br />"+
-             "    <input type='button' class='form-control btnc btnV' onclick='verDetalles("+id+",0)' value='Ver detalles' />"+
+             "    <input type='button' class='pulse-button btnc' value='Contactar' onclick='verDetalles("+id+",1,\""+logo+"\")' /><br />"+
+             "    <input type='button' class='form-control btnc btnV' onclick='verDetalles("+id+",0,\""+logo+"\")' value='Ver detalles' />"+
              "</div>"+
              "</div>";
      
      return card;
  }
  
- function verDetalles(id,detalle)
+ function verDetalles(id,detalle,logo)
  {
     let region =$("#lblRegion_"+id).html();
     let prestador =$("#hNombreCr_"+id).html();
@@ -440,6 +440,7 @@ function generarTarjeta(id, desc, valor, prestador, region, comuna, dir, num,log
     let direccion =$("#lblDireccion_"+id).html();
     let valor =$("#lblDesdeValor_"+id).html();
     let soloValor = $("#lblValor_"+id).html();
+
     $('#ulPrincipal').empty();
     $('#ulAdicional').empty();
     $('#dvResenias').empty();
@@ -447,7 +448,8 @@ function generarTarjeta(id, desc, valor, prestador, region, comuna, dir, num,log
     $("#lblmPrestador").html(prestador);
     $("#lblmDireccion").html(direccion+", "+region);
     $("#lblmValor").html(valor);
-    
+    $("#logoModalDetail").attr("src",urlMedia+"prestadores/"+logo);
+
     if(detalle == 0){
         $("#btnContactarDetalle").html("Contactar");
         $("#btnContactarDetalle").removeClass("btnV").addClass("btnN");
