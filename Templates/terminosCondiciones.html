@@ -1,0 +1,61 @@
+{% extends '_cLayout.html' %}
+
+{% block content %}
+{% load static %}
+
+<div>
+    <div class="row">
+        <div class="col-12" style="text-align: center;" >
+            <br />
+            <h3 class="titleP" style="color:#0097B2; font-weight: bold;">Terminos & Condiciones</h3>
+            <h5 class="subTitleBanner" style="margin-bottom: 5px;">Sobre el uso de datos personales</h5>
+            <br />
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content container">
+    <div class="row mb-2">
+
+    </div>
+    <div class="row mb-2">
+            <div class="ibox col-md-12" id="iBoxData" >          
+                                      
+                <div class="ibox-content sk-loading" style="padding-left: 0px;padding-right: 0px;">        
+                    <div id="dvData">
+                        
+                    </div>
+                </div>    
+                <div class="container mt-5">
+                    <small id="fecha" class="text-muted"></small>
+                    <p id="p1" class="mt-4">Al completar el formulario de contacto en esta página web, usted acepta de forma voluntaria proporcionar información personal como su nombre, apellido, RUT, número de teléfono y correo electrónico. Estos datos serán utilizados exclusivamente para fines de contacto, orientación y entrega de información relacionada con los servicios de comparación de precios de cremación ofrecidos en esta plataforma.</p>
+                    <p id="p2" class="mt-4">Nos comprometemos a mantener la confidencialidad de sus datos y a no compartirlos con terceros sin su consentimiento expreso, salvo obligación legal. La información recopilada será almacenada en bases de datos seguras y se utilizará únicamente para mejorar su experiencia como usuario y facilitar la comunicación sobre los servicios que usted haya solicitado.</p>
+                    <p id="p3" class="mt-4">En cualquier momento, usted podrá solicitar la modificación, actualización o eliminación de sus datos personales enviando un correo electrónico a [tu correo de contacto]. Esta plataforma cumple con la Ley N° 19.628 sobre Protección de la Vida Privada y sus modificaciones vigentes en Chile.</p>
+                    <p id="p4" class="mt-4">Al enviar sus datos, usted declara haber leído y aceptado estos términos y condiciones.</p>
+                </div>
+            </div>
+
+    </div>
+
+
+  
+</div>
+<style>
+  .noticia-link{
+    color: black;
+  }
+  #contenido {
+    column-count: 2;           /* Número de columnas */
+    column-gap: 40px;          /* Espacio entre columnas */
+    text-align: justify;       /* Para mejor lectura */
+}
+@media (max-width: 768px) {
+    .texto-multicolumna {
+        column-count: 1;
+    }
+}
+</style>
+
+
+
+{% endblock %}
