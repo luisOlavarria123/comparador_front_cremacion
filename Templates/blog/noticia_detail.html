@@ -39,9 +39,15 @@
                     
                 </div>    
                 <div class="container mt-5">
+                    
                     <h2 id="titulo"></h2>
                     <small id="fecha" class="text-muted"></small>
-                    <p id="contenido" class="mt-4"></p>
+                    <div id="contenido"></div>
+                    <div class="mt-4">
+                        <a href="{% url 'blog' %}" class="btn btn-primary">
+                            ← Volver al blog de noticias
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -51,19 +57,20 @@
   
 </div>
 <style>
-  .noticia-link{
-    color: black;
-  }
-  #contenido {
-    column-count: 2;           /* Número de columnas */
-    column-gap: 40px;          /* Espacio entre columnas */
-    text-align: justify;       /* Para mejor lectura */
-}
-@media (max-width: 768px) {
-    .texto-multicolumna {
-        column-count: 1;
+    #contenido {
+        column-count: 2;
+        column-gap: 40px;
+        text-align: justify;
     }
-}
+    .img-col2 {
+        break-before: column;
+        width: 100%;
+        display: block;
+        margin: 20px 0;
+    }
+    @media (max-width: 768px) {
+        #contenido { column-count: 1; }
+    }
 </style>
 
 <script>

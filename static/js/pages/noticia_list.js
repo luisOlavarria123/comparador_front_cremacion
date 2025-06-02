@@ -15,7 +15,8 @@ function obtenerData() {
                     noticia.slug,
                     noticia.titulo,
                     noticia.contenido,
-                    noticia.fecha_publicacion
+                    noticia.fecha_publicacion,
+                    urlMedia + "noticias/" + noticia.imagen_cid // Asegúrate de que este campo existe en tu objeto noticia
                 );
                 $('#dvData').append(tarjeta);
             });
@@ -49,3 +50,18 @@ function generarTarjeta(slug, titulo, contenido, fecha, imagenURL) {
         </a>
     </div>`;
 }
+
+// Ejemplo de cómo agregar una card (ajusta según tu estructura de datos)
+const cardHtml = `
+<div class="noticia-card">
+    <a href="${detalleUrl}" class="noticia-link">
+        <div class="noticia-img" style="background-image: url('${imagenUrl}');"></div>
+        <div class="noticia-content">
+            <div class="noticia-titulo">${titulo}</div>
+            <div class="noticia-resumen">${resumen}</div>
+            <div class="noticia-fecha">${fecha}</div>
+        </div>
+    </a>
+</div>
+`;
+// Agrega cardHtml a #dvData
