@@ -29,7 +29,7 @@ DEBUG = os.getenv('DEBUG','False')
 URL_API = os.getenv("URL_API")
 URL_MEDIA = os.getenv("URL_MEDIA")
 PORTALCODE = os.getenv("PORTALCODE")
-
+WSPNUMBER = os.getenv("WSPNUMBER")
 # Application definition
 
 INSTALLED_APPS = [

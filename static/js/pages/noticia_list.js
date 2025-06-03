@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 
 function obtenerData() {
-    const noticias = 'noticias/';
+    const noticias = 'noticias?categoria=C';
     $.get(url + noticias, "", function(noticias) {
         if (noticias.length > 0) {
 

@@ -7,4 +7,5 @@ def global_variables(request):
         'URL_API': settings.URL_API,
         'URL_MEDIA': settings.URL_MEDIA,
         'PORTALCODE': settings.PORTALCODE,
+        'WSPNUMBER': settings.WSPNUMBER
     }
