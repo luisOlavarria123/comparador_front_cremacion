@@ -27,7 +27,152 @@
                 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+<style>
+.flex-fill {
+    flex: 1;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+}
+html, body {
 
+    margin: 0;
+}
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde el lado derecho */
+    z-index: 1000; /* Asegura que esté siempre visible */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    border-radius: 50%; /* Botón circular */
+    background-color: #25D366; /* Color verde de WhatsApp */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.whatsapp-button img {
+    width: 35px; /* Icono dentro del botón */
+    height: 35px;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1); /* Agranda ligeramente el botón al pasar el cursor */
+    opacity: 0.9; /* Reduce la opacidad */
+}
+
+.banner
+{
+    height:150px;
+    text-align:center;
+    background-image:url('https://preciofuneraria.s3.us-east-1.amazonaws.com/bannerCremacion.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: 
+    no-repeat;padding:5px;
+}
+
+  /* Ocultar el navbar por defecto en dispositivos móviles */
+@media (max-width: 767px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ajustar el contenido para que no quede oculto debajo del header */
+    main {
+        margin-top: 80px;
+    }
+
+    /* Navbar desplegable desde la derecha */
+    #navbarContent {
+        position: fixed;
+        top: 0;
+        right: -250px; /* Inicialmente oculto fuera de la pantalla */
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1050;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbarContent.active {
+        right: 0; /* Mostrar el navbar cuando esté activo */
+    }
+
+    /* Botón para abrir el menú */
+    #btnMostrarMenu {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1060;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .custom-logo{
+        max-width: 300px;
+    }
+
+    .banner
+    {
+        height:150px;
+        text-align:center;
+        background-image:url('https://preciofuneraria.s3.us-east-1.amazonaws.com/bannerCremacion.png');
+        background-size: cover;
+        background-position: right;
+        background-repeat: 
+        no-repeat;padding:5px;
+    }    
+
+    .subTitleBanner
+    {
+        background-color: #ffffff7a;
+    }
+    .navPadding
+      {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+      }
+}
+
+/* En pantallas más grandes, mantener el navbar visible y el header estático */
+@media (min-width: 768px) {
+    header {
+        position: relative;
+    }
+    .navPadding
+    {
+        padding: 15px 50px 15px 50px;
+    }
+    #navbarContent {
+        position: static;
+        right: 0;
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    #btnMostrarMenu {
+        display: none; /* Ocultar el botón en pantallas grandes */
+    }
+}
+
+</style>
 </head>
 <body>
     <header>
@@ -181,152 +326,7 @@
   </div>
 </footer>
 
-<style>
-.flex-fill {
-    flex: 1;
-}
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 70vh;
-}
-html, body {
 
-    margin: 0;
-}
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px; /* Distancia desde la parte inferior */
-    right: 20px; /* Distancia desde el lado derecho */
-    z-index: 1000; /* Asegura que esté siempre visible */
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Alto del botón */
-    border-radius: 50%; /* Botón circular */
-    background-color: #25D366; /* Color verde de WhatsApp */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.whatsapp-button img {
-    width: 35px; /* Icono dentro del botón */
-    height: 35px;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1); /* Agranda ligeramente el botón al pasar el cursor */
-    opacity: 0.9; /* Reduce la opacidad */
-}
-
-.banner
-{
-    height:150px;
-    text-align:center;
-    background-image:url('https://preciofuneraria.s3.us-east-1.amazonaws.com/bannerCremacion.png');
-    background-size: contain;
-    background-position: right;
-    background-repeat: 
-    no-repeat;padding:5px;
-}
-
-  /* Ocultar el navbar por defecto en dispositivos móviles */
-@media (max-width: 767px) {
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1050;
-        background-color: #fff;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Ajustar el contenido para que no quede oculto debajo del header */
-    main {
-        margin-top: 80px;
-    }
-
-    /* Navbar desplegable desde la derecha */
-    #navbarContent {
-        position: fixed;
-        top: 0;
-        right: -250px; /* Inicialmente oculto fuera de la pantalla */
-        width: 250px;
-        height: 100%;
-        background-color: #fff;
-        z-index: 1050;
-        transition: right 0.3s ease-in-out;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    #navbarContent.active {
-        right: 0; /* Mostrar el navbar cuando esté activo */
-    }
-
-    /* Botón para abrir el menú */
-    #btnMostrarMenu {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 1060;
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .custom-logo{
-        max-width: 300px;
-    }
-
-    .banner
-    {
-        height:150px;
-        text-align:center;
-        background-image:url('https://preciofuneraria.s3.us-east-1.amazonaws.com/bannerCremacion.png');
-        background-size: cover;
-        background-position: right;
-        background-repeat: 
-        no-repeat;padding:5px;
-    }    
-
-    .subTitleBanner
-    {
-        background-color: #ffffff7a;
-    }
-    .navPadding
-      {
-        padding: 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 8px;
-      }
-}
-
-/* En pantallas más grandes, mantener el navbar visible y el header estático */
-@media (min-width: 768px) {
-    header {
-        position: relative;
-    }
-    .navPadding
-    {
-        padding: 15px 50px 15px 50px;
-    }
-    #navbarContent {
-        position: static;
-        right: 0;
-        height: auto;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    #btnMostrarMenu {
-        display: none; /* Ocultar el botón en pantallas grandes */
-    }
-}
-
-</style>
 <script>
     const url = "{{ URL_API }}";
     const urlMedia = "{{ URL_MEDIA }}";

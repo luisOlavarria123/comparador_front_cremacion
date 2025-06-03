@@ -2,7 +2,226 @@
 
 {% block content %}
 {% load static %}
+<style>
 
+    .filterHead{
+        background-color: #0097B2;
+        width:100%;
+    }
+    .btnV{
+        margin-top:5px;
+        background-color:#8a8b8b;
+        color:white;
+        cursor: pointer;
+    }    
+    .btnN{
+        margin-top:5px;
+        background-color:#0097B2;
+        color:white;
+        cursor: pointer;
+    }
+
+    .btncm{
+        width: 30%;
+        margin: 5px auto; 
+        background-color: #8a8b8b; 
+        color: white; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .logoServicio {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .cell {
+    float: center;
+    min-height: 200px;
+    max-height: 350px;
+    text-align: center;
+    min-width: 100px;
+    
+    }
+    .dvPrice {
+        text-align: center;
+        border-left: 1px solid #a5a5a5;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        width: 210px;
+    }
+    .pulse-button {
+        background-color: #0097B2;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px;
+        color: #fff;
+        cursor: pointer;
+        padding: 8px 16px;
+        width: 100%;
+        -webkit-animation: pulse 1s infinite;
+    }
+
+    .iDetail{
+        color:#0097B2
+    }
+
+    .list-group-item {
+        display: flex;
+        align-items: center;     /* Alinea ícono y texto verticalmente */
+    }
+
+    .list-group-item i {
+        font-size: 1.5rem;       /* Tamaño del ícono */
+        width: 30px;             /* Ancho fijo para los íconos */
+        text-align: center;      /* Centrar los íconos dentro de su espacio */
+        flex-shrink: 0;          /* Evita que los íconos se reduzcan */
+    }
+
+    .list-group-item span {
+        margin-left: 10px;       /* Espacio entre el ícono y el texto */
+    }
+
+    .modal-dialog{
+        width: 80%;max-width: 100%;
+    }
+
+    .stari{
+        font-size: 11px;
+    }
+
+    .titleP {
+
+    font-size:50px;
+    color:white;
+
+    }
+    .navPadding
+    {
+        padding: 15px 50px 15px 50px;
+    }
+    @media (max-width: 767px) {
+
+        .titleP {
+        color:white;
+        font-size: 28px;
+        text-shadow: 1px  0px 0px rgba(255, 255, 255, 0.693),
+                    0px  1px 0px rgba(255, 255, 255, 0.693),
+                    
+                    0px -1px 0px rgba(255, 255, 255, 0.693);
+        }
+        .navPadding
+        {
+            padding: 0px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 8px;
+        }
+        .headValoraciones{
+            margin-top: 20px;
+        }
+
+        .btncm{
+            width: 80%;
+        }
+        .modal-dialog {
+            width: auto !important;  /* Quita el ancho especificado en dispositivos móviles */
+            max-width: none !important;  /* Quita el ancho máximo especificado en dispositivos móviles */
+        }
+        .stari{
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .logoServicio {
+            max-width: 65%;  /* Controla el ancho máximo en móviles */
+            max-height: 65%; /* Controla el alto máximo en móviles */
+            object-fit: contain; /* Mantiene la relación de aspecto */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+        .lblDir{
+            margin-top: 5px;
+        }
+        .dvPrice {
+        text-align: center;
+        border-left: 0px!important;
+        border-top: 1px solid #dee2e6;
+        margin-top: 10px!important;
+        margin-bottom: 10px;
+        width: 210px;
+        }
+
+        .dvDetalle{
+            text-align: center!important;
+        }
+
+        #dvFiltros {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Inicialmente oculto fuera de la pantalla */
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            z-index: 1050;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        #dvFiltros.active {
+            left: 0; /* Mover el div dentro de la pantalla cuando está activo */
+        }
+
+        /* Ocultar el contenido principal mientras los filtros están abiertos */
+        .content-blur {
+            filter: blur(5px);
+        }
+
+        #btnMostrarFiltros {
+            position: fixed;
+            bottom: 20px; /* Posición en la parte inferior */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Ajuste de centrado */
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            z-index: 1060; /* Debe estar encima de otros elementos */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle efecto flotante */
+        }
+
+        /* Ocultar el botón en pantallas grandes */
+        @media (min-width: 768px) {
+            #btnMostrarFiltros {
+                display: none;
+            }
+        }
+
+
+    }
+
+    @keyframes pulse {
+                0% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+                }
+
+                70% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+                }
+
+                100% {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+                }
+    }
+
+   
+
+</style>
 
 <div class="banner">
     <div class="row">
@@ -267,226 +486,7 @@
 </div>
 
 
-<style>
 
-    .filterHead{
-        background-color: #0097B2;
-        width:100%;
-    }
-    .btnV{
-        margin-top:5px;
-        background-color:#8a8b8b;
-        color:white;
-        cursor: pointer;
-    }    
-    .btnN{
-        margin-top:5px;
-        background-color:#0097B2;
-        color:white;
-        cursor: pointer;
-    }
-
-    .btncm{
-        width: 30%;
-        margin: 5px auto; 
-        background-color: #8a8b8b; 
-        color: white; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-    }
-    .logoServicio {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-    }
-
-    .cell {
-    float: center;
-    min-height: 200px;
-    max-height: 350px;
-    text-align: center;
-    min-width: 100px;
-    
-    }
-    .dvPrice {
-        text-align: center;
-        border-left: 1px solid #a5a5a5;
-        margin-top: 40px;
-        margin-bottom: 10px;
-        width: 210px;
-    }
-    .pulse-button {
-        background-color: #0097B2;
-        border-radius: 4px;
-        font-weight: bold;
-        border: 1px;
-        color: #fff;
-        cursor: pointer;
-        padding: 8px 16px;
-        width: 100%;
-        -webkit-animation: pulse 1s infinite;
-    }
-
-    .iDetail{
-        color:#0097B2
-    }
-
-    .list-group-item {
-        display: flex;
-        align-items: center;     /* Alinea ícono y texto verticalmente */
-    }
-
-    .list-group-item i {
-        font-size: 1.5rem;       /* Tamaño del ícono */
-        width: 30px;             /* Ancho fijo para los íconos */
-        text-align: center;      /* Centrar los íconos dentro de su espacio */
-        flex-shrink: 0;          /* Evita que los íconos se reduzcan */
-    }
-
-    .list-group-item span {
-        margin-left: 10px;       /* Espacio entre el ícono y el texto */
-    }
-
-    .modal-dialog{
-        width: 80%;max-width: 100%;
-    }
-
-    .stari{
-        font-size: 11px;
-    }
-
-    .titleP {
-
-    font-size:50px;
-    color:white;
-
-    }
-    .navPadding
-    {
-        padding: 15px 50px 15px 50px;
-    }
-    @media (max-width: 767px) {
-
-        .titleP {
-        color:white;
-        font-size: 28px;
-        text-shadow: 1px  0px 0px rgba(255, 255, 255, 0.693),
-                    0px  1px 0px rgba(255, 255, 255, 0.693),
-                    
-                    0px -1px 0px rgba(255, 255, 255, 0.693);
-        }
-        .navPadding
-        {
-            padding: 0px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 8px;
-        }
-        .headValoraciones{
-            margin-top: 20px;
-        }
-
-        .btncm{
-            width: 80%;
-        }
-        .modal-dialog {
-            width: auto !important;  /* Quita el ancho especificado en dispositivos móviles */
-            max-width: none !important;  /* Quita el ancho máximo especificado en dispositivos móviles */
-        }
-        .stari{
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-        .logoServicio {
-            max-width: 65%;  /* Controla el ancho máximo en móviles */
-            max-height: 65%; /* Controla el alto máximo en móviles */
-            object-fit: contain; /* Mantiene la relación de aspecto */
-            margin: 0 auto; /* Centra la imagen horizontalmente */
-        }
-        .lblDir{
-            margin-top: 5px;
-        }
-        .dvPrice {
-        text-align: center;
-        border-left: 0px!important;
-        border-top: 1px solid #dee2e6;
-        margin-top: 10px!important;
-        margin-bottom: 10px;
-        width: 210px;
-        }
-
-        .dvDetalle{
-            text-align: center!important;
-        }
-
-        #dvFiltros {
-            position: fixed;
-            top: 0;
-            left: -250px; /* Inicialmente oculto fuera de la pantalla */
-            width: 250px;
-            height: 100%;
-            background-color: #f8f9fa;
-            z-index: 1050;
-            transition: left 0.3s ease-in-out;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-
-        #dvFiltros.active {
-            left: 0; /* Mover el div dentro de la pantalla cuando está activo */
-        }
-
-        /* Ocultar el contenido principal mientras los filtros están abiertos */
-        .content-blur {
-            filter: blur(5px);
-        }
-
-        #btnMostrarFiltros {
-            position: fixed;
-            bottom: 20px; /* Posición en la parte inferior */
-            left: 50%; /* Centrado horizontalmente */
-            transform: translateX(-50%); /* Ajuste de centrado */
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            z-index: 1060; /* Debe estar encima de otros elementos */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle efecto flotante */
-        }
-
-        /* Ocultar el botón en pantallas grandes */
-        @media (min-width: 768px) {
-            #btnMostrarFiltros {
-                display: none;
-            }
-        }
-
-
-    }
-
-    @keyframes pulse {
-                0% {
-                    transform: scale(0.95);
-                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
-                }
-
-                70% {
-                    transform: scale(1);
-                    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
-                }
-
-                100% {
-                    transform: scale(0.95);
-                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-                }
-    }
-
-   
-
-</style>
 
 <script src="{% static '/js/pages/comparador.js' %}"></script>
 
